@@ -72,6 +72,40 @@
 <p>Also you can install the <code>iucnr</code> package from GitHub using the following command:</p>
 <div class="sourceCode" id="cb2"><pre class="downlit sourceCode r">
 <code class="sourceCode R"><span><span class="fu">pak</span><span class="fu">::</span><span class="fu"><a href="https://pak.r-lib.org/reference/pak.html" class="external-link">pak</a></span><span class="op">(</span><span class="st">"PaulESantos/iucnr"</span><span class="op">)</span></span></code></pre></div>
+</div>
+</div>
+<div class="section level1">
+<h1 id="example-usage-of-the-iucnr-package">Example usage of the iucnr package<a class="anchor" aria-label="anchor" href="#example-usage-of-the-iucnr-package"></a>
+</h1>
+<ul>
+<li>Define a vector of species names</li>
+</ul>
+<div class="sourceCode" id="cb3"><pre class="downlit sourceCode r">
+<code class="sourceCode R"><span><span class="va">x</span> <span class="op">&lt;-</span> <span class="fu"><a href="https://rdrr.io/r/base/c.html" class="external-link">c</a></span><span class="op">(</span><span class="st">"Cedrela odorata"</span>, <span class="st">"Persea americana"</span>, </span>
+<span>       <span class="st">"Panthera uncia"</span>, <span class="st">"Lynx lynx"</span>, <span class="st">"Ara militaris"</span>, <span class="st">"Zonotrichia capencis"</span><span class="op">)</span></span></code></pre></div>
+<ul>
+<li>Get the conservation status for each species</li>
+</ul>
+<div class="sourceCode" id="cb4"><pre class="downlit sourceCode r">
+<code class="sourceCode R"><span><span class="kw"><a href="https://rdrr.io/r/base/library.html" class="external-link">library</a></span><span class="op">(</span><span class="va"><a href="https://github.com/PaulESantos/iucnr" class="external-link">iucnr</a></span><span class="op">)</span></span>
+<span><span class="fu"><a href="reference/get_conservation_status.html">get_conservation_status</a></span><span class="op">(</span><span class="va">x</span><span class="op">)</span></span>
+<span><span class="co">#&gt; [1] "Vulnerable"     "Least concern"  "Vulnerable"     "Least concern" </span></span>
+<span><span class="co">#&gt; [5] "Vulnerable"     "no match found"</span></span></code></pre></div>
+<ul>
+<li>Integrate the results into a tibble for further analysis</li>
+</ul>
+<div class="sourceCode" id="cb5"><pre class="downlit sourceCode r">
+<code class="sourceCode R"><span><span class="fu">tibble</span><span class="fu">::</span><span class="fu"><a href="https://tibble.tidyverse.org/reference/tibble.html" class="external-link">tibble</a></span><span class="op">(</span>species <span class="op">=</span> <span class="va">x</span><span class="op">)</span> <span class="op">|&gt;</span> </span>
+<span>  <span class="fu">dplyr</span><span class="fu">::</span><span class="fu">mutate</span><span class="op">(</span>iucn <span class="op">=</span> <span class="fu"><a href="reference/get_conservation_status.html">get_conservation_status</a></span><span class="op">(</span><span class="va">species</span><span class="op">)</span><span class="op">)</span></span>
+<span><span class="co">#&gt; # A tibble: 6 × 2</span></span>
+<span><span class="co">#&gt;   species              iucn          </span></span>
+<span><span class="co">#&gt;   &lt;chr&gt;                &lt;chr&gt;         </span></span>
+<span><span class="co">#&gt; 1 Cedrela odorata      Vulnerable    </span></span>
+<span><span class="co">#&gt; 2 Persea americana     Least concern </span></span>
+<span><span class="co">#&gt; 3 Panthera uncia       Vulnerable    </span></span>
+<span><span class="co">#&gt; 4 Lynx lynx            Least concern </span></span>
+<span><span class="co">#&gt; 5 Ara militaris        Vulnerable    </span></span>
+<span><span class="co">#&gt; 6 Zonotrichia capencis no match found</span></span></code></pre></div>
 <div class="section level3">
 <h3 id="citation">Citation<a class="anchor" aria-label="anchor" href="#citation"></a>
 </h3>
@@ -80,7 +114,7 @@
 </ul>
 </div>
 </div>
-</div>
+
   </main><aside class="col-md-3"><div class="links">
 <h2 data-toc-skip>Links</h2>
 <ul class="list-unstyled">
