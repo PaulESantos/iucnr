@@ -3,3 +3,11 @@
 ^LICENSE\.md$
 ^README\.Rmd$
 ^cran-comments\.md$
+^\.github$
+^codecov\.yml$
+^_pkgdown\.yml$
+^docs$
+^pkgdown$
+^data-raw$
+^iucn-2022-1 (1).zip
+^raw_data

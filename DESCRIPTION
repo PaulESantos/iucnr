@@ -1,10 +1,11 @@
 Package: iucnr
-Title: What the Package Does (One Line, Title Case)
-Version: 0.0.0.9000
+Title: IUCN Red List Data
+Version: 0.0.0.1
 Authors@R: 
-    person("First", "Last", , "first.last@example.com", role = c("aut", "cre"),
-           comment = c(ORCID = "YOUR-ORCID-ID"))
-Description: What the package does (one paragraph).
+    person("Paul Efren", "Santos Andrade", ,
+    "paulefrens@gmail.com", role = c("aut", "cre"),
+           comment = c(ORCID = "0000-0002-6635-0375"))
+Description: Provides access to the 'IUCN' Red List data (<https://www.gbif.org/dataset/19491596-35ae-4a91-9a98-85cf505f1bd3/>), a comprehensive global inventory of threatened and endangered species. This package simplifies the process of resolving species' conservation status by comparing taxonomic names with the Red List data. The package includes functions for querying and retrieving conservation status, offering a streamlined approach for biodiversity research and conservation planning.
 License: MIT + file LICENSE
 Suggests: 
     testthat (>= 3.0.0)
@@ -12,5 +13,9 @@ Config/testthat/edition: 3
 Encoding: UTF-8
 Roxygen: list(markdown = TRUE)
 RoxygenNote: 7.3.2
-URL: https://github.com/PaulESantos/iucnr
+URL: https://github.com/PaulESantos/iucnr, https://paulesantos.github.io/iucnr/
 BugReports: https://github.com/PaulESantos/iucnr/issues
+Depends: 
+    R (>= 2.10)
+LazyData: true
+LazyDataCompression: xz

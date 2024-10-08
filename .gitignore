@@ -4,3 +4,6 @@
 .httr-oauth
 .DS_Store
 .quarto
+docs
+iucn-2022-1 (1).zip
+^raw_data
