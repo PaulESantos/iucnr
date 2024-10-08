@@ -10,6 +10,7 @@
 #'        "Panthera uncia", "Lynx lynx", "Ara militaris", "Zonotrichia capencis")
 #' get_iucn_data(x)
 #'
+#' @export
 get_iucn_data <- function(species_names) {
   # Check for valid input
   if (missing(species_names) || !is.character(species_names) || length(species_names) == 0) {

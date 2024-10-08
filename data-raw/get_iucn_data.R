@@ -149,6 +149,7 @@ iucn_data <- taxon_data |>
 
 usethis::use_data(iucn_data,
                   compress = "xz",
+                  ascii = TRUE,
                   overwrite = TRUE)
 
 # vernacular names data
