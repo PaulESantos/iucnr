@@ -124,18 +124,18 @@ iucn_data <- taxon_data |>
     kingdom == "PLANTAE" & taxon_rank == "forma" ~ "fma.",
     TRUE ~ NA_character_
   )) |>
-  dplyr::select(scientific_name,
-                family,
-                genus,
-                specific_epithet,
-                infraspecific_epithet,
-                infrasp_tag,
-                taxon_rank,
-                taxonomic_status,
-                accepted_name_usage_id,
-                core_id,
-                threat_status
-  ) |>
+#  dplyr::select(scientific_name,
+#                family,
+#                genus,
+#                specific_epithet,
+#                infraspecific_epithet,
+#                infrasp_tag,
+#                taxon_rank,
+#                taxonomic_status,
+#                accepted_name_usage_id,
+#                core_id,
+#                threat_status
+#  ) |>
   dplyr::mutate(search_name = dplyr::case_when(
     is.na(infrasp_tag) ~ paste0(genus, " ", specific_epithet),
     !is.na(infrasp_tag) ~ paste0(genus, " ",
