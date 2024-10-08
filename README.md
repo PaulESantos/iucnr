@@ -68,6 +68,40 @@ command:
 pak::pak("PaulESantos/iucnr")
 ```
 
+# Example usage of the iucnr package
+
+- Define a vector of species names
+
+``` r
+x <- c("Cedrela odorata", "Persea americana", 
+       "Panthera uncia", "Lynx lynx", "Ara militaris", "Zonotrichia capencis")
+```
+
+- Get the conservation status for each species
+
+``` r
+library(iucnr)
+get_conservation_status(x)
+#> [1] "Vulnerable"     "Least concern"  "Vulnerable"     "Least concern" 
+#> [5] "Vulnerable"     "no match found"
+```
+
+- Integrate the results into a tibble for further analysis
+
+``` r
+tibble::tibble(species = x) |> 
+  dplyr::mutate(iucn = get_conservation_status(species))
+#> # A tibble: 6 × 2
+#>   species              iucn          
+#>   <chr>                <chr>         
+#> 1 Cedrela odorata      Vulnerable    
+#> 2 Persea americana     Least concern 
+#> 3 Panthera uncia       Vulnerable    
+#> 4 Lynx lynx            Least concern 
+#> 5 Ara militaris        Vulnerable    
+#> 6 Zonotrichia capencis no match found
+```
+
 ### Citation
 
 - IUCN (2022). The IUCN Red List of Threatened Species. Version 2022-2.
