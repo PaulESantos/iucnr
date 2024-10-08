@@ -48,8 +48,39 @@
   </div>
 </nav><div class="container template-home">
 <div class="row">
-  <main id="main" class="col-md-9">
-Provides access to the 'IUCN' Red List data (&lt;<a href="https://www.gbif.org/dataset/19491596-35ae-4a91-9a98-85cf505f1bd3/" class="external-link">https://www.gbif.org/dataset/19491596-35ae-4a91-9a98-85cf505f1bd3/</a>&gt;), a comprehensive global inventory of threatened and endangered species. This package simplifies the process of resolving species' conservation status by comparing taxonomic names with the Red List data. The package includes functions for querying and retrieving conservation status, offering a streamlined approach for biodiversity research and conservation planning.
+  <main id="main" class="col-md-9"><div class="section level1">
+<div class="page-header"><h1 id="iucnr">iucnr<a class="anchor" aria-label="anchor" href="#iucnr"></a>
+</h1></div>
+<!-- badges: start -->
+
+<p>Welcome to the <code>iucnr</code> package, a comprehensive tool designed for researchers and conservationists to access and analyze data from the <strong>IUCN Red List of Threatened Species</strong>. This package allows users to retrieve and integrate taxonomic and vernacular name data, empowering them to conduct thorough assessments of species status and threats. With a strong emphasis on enhancing biodiversity research, <code>iucnr</code> offers a user-friendly interface for navigating the extensive datasets available through the Global Biodiversity Information Facility (GBIF).</p>
+<p>The <code>iucnr</code> package enables access to Red List data on threatened species without the need for an internet connection, making it a valuable resource for evaluating the conservation status of various species. The information is sourced from the GBIF repository (<a href="https://www.gbif.org/dataset/19491596-35ae-4a91-9a98-85cf505f1bd3" class="external-link uri">https://www.gbif.org/dataset/19491596-35ae-4a91-9a98-85cf505f1bd3</a>).</p>
+<p>While there are other packages available for similar purposes, they typically require an API key to access the IUCN API, which can be a barrier for some users.</p>
+<div class="section level3">
+<h3 id="spanish-version">Spanish Version<a class="anchor" aria-label="anchor" href="#spanish-version"></a>
+</h3>
+<p>Bienvenido al paquete <code>iucnr</code>, una herramienta integral diseñada para investigadores y conservacionistas que desean acceder y analizar datos de la Lista Roja de Especies Amenazadas de la IUCN. Este paquete permite a los usuarios recuperar e integrar datos taxonómicos y nombres vernáculos, empoderándolos para realizar evaluaciones exhaustivas sobre el estado y las amenazas a las especies. <code>iucnr</code> ofrece una interfaz amigable para navegar a través de los extensos conjuntos de datos disponibles a través de la Global Biodiversity Information Facility (GBIF) de la <strong>Lista Roja de Especies Amenazadas</strong> sin necesidad de estar conectado a internet, lo que lo convierte en un recurso valioso para evaluar el estado de conservación de diversas especies. La información se obtiene del repositorio de GBIF (<a href="https://www.gbif.org/dataset/19491596-35ae-4a91-9a98-85cf505f1bd3" class="external-link uri">https://www.gbif.org/dataset/19491596-35ae-4a91-9a98-85cf505f1bd3</a>).</p>
+<p>Si bien existen otros paquetes disponibles para objetivos similares, estos generalmente requieren una clave de API para acceder al API de la IUCN, lo que puede ser un obstáculo para algunos usuarios.</p>
+</div>
+<div class="section level2">
+<h2 id="installation">Installation<a class="anchor" aria-label="anchor" href="#installation"></a>
+</h2>
+<div class="sourceCode" id="cb1"><pre class="downlit sourceCode r">
+<code class="sourceCode R"><span><span class="fu"><a href="https://rdrr.io/r/utils/install.packages.html" class="external-link">install.packages</a></span><span class="op">(</span><span class="st">"iucnr"</span><span class="op">)</span></span>
+<span><span class="co"># or</span></span>
+<span><span class="fu">pak</span><span class="fu">::</span><span class="fu"><a href="https://pak.r-lib.org/reference/pak.html" class="external-link">pak</a></span><span class="op">(</span><span class="st">"iucnr"</span><span class="op">)</span></span></code></pre></div>
+<p>Also you can install the <code>iucnr</code> package from GitHub using the following command:</p>
+<div class="sourceCode" id="cb2"><pre class="downlit sourceCode r">
+<code class="sourceCode R"><span><span class="fu">pak</span><span class="fu">::</span><span class="fu"><a href="https://pak.r-lib.org/reference/pak.html" class="external-link">pak</a></span><span class="op">(</span><span class="st">"PaulESantos/iucnr"</span><span class="op">)</span></span></code></pre></div>
+<div class="section level3">
+<h3 id="citation">Citation<a class="anchor" aria-label="anchor" href="#citation"></a>
+</h3>
+<ul>
+<li>IUCN (2022). The IUCN Red List of Threatened Species. Version 2022-2. <a href="https://www.iucnredlist.org" class="external-link uri">https://www.iucnredlist.org</a>. Downloaded on 2023-05-09. <a href="https://doi.org/10.15468/0qnb58" class="external-link uri">https://doi.org/10.15468/0qnb58</a> accessed via GBIF.org on 2023-11-17. accessed via GBIF.org on 2024-10-08.</li>
+</ul>
+</div>
+</div>
+</div>
   </main><aside class="col-md-3"><div class="links">
 <h2 data-toc-skip>Links</h2>
 <ul class="list-unstyled">
@@ -90,7 +121,15 @@ Provides access to the 'IUCN' Red List data (&lt;<a href="https://www.gbif.org/d
 </ul>
 </div>
 
-
+<div class="dev-status">
+<h2 data-toc-skip>Dev status</h2>
+<ul class="list-unstyled">
+<li><a href="https://lifecycle.r-lib.org/articles/stages.html#experimental" class="external-link"><img src="https://img.shields.io/badge/lifecycle-experimental-orange.svg" alt="Lifecycle: experimental"></a></li>
+<li><a href="https://CRAN.R-project.org/package=iucnr" class="external-link"><img src="https://www.r-pkg.org/badges/version/iucnr" alt="CRAN status"></a></li>
+<li><a href="https://github.com/PaulESantos/iucnr/actions/workflows/R-CMD-check.yaml" class="external-link"><img src="https://github.com/PaulESantos/iucnr/actions/workflows/R-CMD-check.yaml/badge.svg" alt="R-CMD-check"></a></li>
+<li><a href="https://app.codecov.io/gh/PaulESantos/iucnr" class="external-link"><img src="https://codecov.io/gh/PaulESantos/iucnr/graph/badge.svg" alt="Codecov test coverage"></a></li>
+</ul>
+</div>
 
   </aside>
 </div>
