@@ -9,8 +9,7 @@
 
 get_conservation_status <- function(species_names) {
   # Convertir el tibble iucn_data a data.table para optimización
-  data.table::setDT(iucn_data)
-
+  data.table::as.data.table(iucn_data)
   # Validar entrada
   if (missing(species_names) || !is.character(species_names) || length(species_names) == 0) {
     stop("Please provide a non-empty character vector of species names.")
