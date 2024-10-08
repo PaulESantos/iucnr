@@ -22,37 +22,53 @@ knitr::opts_chunk$set(
 [![Codecov test coverage](https://codecov.io/gh/PaulESantos/iucnr/graph/badge.svg)](https://app.codecov.io/gh/PaulESantos/iucnr)
 <!-- badges: end -->
 
-The goal of iucnr is to ...
+Welcome to the `iucnr` package, a comprehensive tool designed for researchers and conservationists to access and analyze data from the **IUCN Red List of Threatened Species**. This package allows users to retrieve and integrate taxonomic and vernacular name data, empowering them to conduct thorough assessments of species status and threats. With a strong emphasis on enhancing biodiversity research, `iucnr` offers a user-friendly interface for navigating the extensive datasets available through the Global Biodiversity Information Facility (GBIF).
+
+The `iucnr` package enables access to Red List data on threatened species without the need for an internet connection, making it a valuable resource for evaluating the conservation status of various species. The information is sourced from the GBIF repository (https://www.gbif.org/dataset/19491596-35ae-4a91-9a98-85cf505f1bd3).
+
+While there are other packages available for similar purposes, they typically require an API key to access the IUCN API, which can be a barrier for some users.
+
+### Spanish Version
+
+Bienvenido al paquete `iucnr`, una herramienta integral diseñada para investigadores y conservacionistas que desean acceder y analizar datos de la Lista Roja de Especies Amenazadas de la IUCN. Este paquete permite a los usuarios recuperar e integrar datos taxonómicos y nombres vernáculos, empoderándolos para realizar evaluaciones exhaustivas sobre el estado y las amenazas a las especies. `iucnr` ofrece una interfaz amigable para navegar a través de los extensos conjuntos de datos disponibles a través de la Global Biodiversity Information Facility (GBIF) de la **Lista Roja de Especies Amenazadas** sin necesidad de estar conectado a internet, lo que lo convierte en un recurso valioso para evaluar el estado de conservación de diversas especies. La información se obtiene del repositorio de GBIF (https://www.gbif.org/dataset/19491596-35ae-4a91-9a98-85cf505f1bd3).
+
+Si bien existen otros paquetes disponibles para objetivos similares, estos generalmente requieren una clave de API para acceder al API de la IUCN, lo que puede ser un obstáculo para algunos usuarios.
 
 ## Installation
 
-You can install the development version of iucnr like so:
+``` r
+install.packages("iucnr")
+# or
+pak::pak("iucnr")
+```
+
+Also you can install the `iucnr` package from GitHub using the
+following command:
 
 ``` r
-# FILL THIS IN! HOW CAN PEOPLE INSTALL YOUR DEV PACKAGE?
+pak::pak("PaulESantos/iucnr")
 ```
 
-## Example
+# Example usage of the iucnr package
 
-This is a basic example which shows you how to solve a common problem:
+-  Define a vector of species names
 
-```{r example}
+```{r}
+x <- c("Cedrela odorata", "Persea americana", 
+       "Panthera uncia", "Lynx lynx", "Ara militaris", "Zonotrichia capencis")
+```
+ -  Get the conservation status for each species
+
+```{r}
 library(iucnr)
-## basic example code
+get_conservation_status(x)
+```
+ - Integrate the results into a tibble for further analysis
+
+```{r}
+tibble::tibble(species = x) |> 
+  dplyr::mutate(iucn = get_conservation_status(species))
 ```
 
-What is special about using `README.Rmd` instead of just `README.md`? You can include R chunks like so:
-
-```{r cars}
-summary(cars)
-```
-
-You'll still need to render `README.Rmd` regularly, to keep `README.md` up-to-date. `devtools::build_readme()` is handy for this.
-
-You can also embed plots, for example:
-
-```{r pressure, echo = FALSE}
-plot(pressure)
-```
-
-In that case, don't forget to commit and push the resulting figure files, so they display on GitHub and CRAN.
+### Citation
+ - IUCN (2022). The IUCN Red List of Threatened Species. Version 2022-2. https://www.iucnredlist.org. Downloaded on 2023-05-09. https://doi.org/10.15468/0qnb58 accessed via GBIF.org on 2023-11-17. accessed via GBIF.org on 2024-10-08.
