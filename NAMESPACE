@@ -3,4 +3,3 @@
 export(get_conservation_status)
 export(get_iucn_data)
 export(get_vernacular_name)
-importFrom("stats", "aggregate")
