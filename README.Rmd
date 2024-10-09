@@ -11,6 +11,8 @@ knitr::opts_chunk$set(
   fig.path = "man/figures/README-",
   out.width = "100%"
 )
+library(tidyverse)
+library(iucnr)
 ```
 
 # iucnr
@@ -51,23 +53,42 @@ pak::pak("PaulESantos/iucnr")
 
 # Example
 
--  Define a vector of species names
+- Define a vector of species names
 
 ```{r}
-x <- c("Cedrela odorata", "Persea americana", 
-       "Panthera uncia", "Lynx lynx", "Ara militaris", "Zonotrichia capencis")
+species_names <- c("Panthera uncia", "Lynx lynx", "Ara militaris", "Zonotrichia capencis")
 ```
- -  Get the conservation status for each species
+
+- Example usage of the get_conservation_status function
+ This retrieves the conservation status for the specified species
 
 ```{r}
-library(iucnr)
-get_conservation_status(x)
+conservation_status <- get_conservation_status(species_names = species_names)
+conservation_status
 ```
- - Integrate the results into a tibble for further analysis
+
+- Example usage of the get_conservation_status function within a tibble
+ This creates a tibble and adds a new column with the conservation status of each species
 
 ```{r}
-tibble::tibble(species = x) |> 
+species_data <- tibble::tibble(species = species_names) |> 
   dplyr::mutate(iucn = get_conservation_status(species))
+species_data
+```
+- Example usage of the get_iucn_data function
+ This retrieves detailed IUCN data for the specified species names
+
+```{r}
+iucn_data_result <- get_iucn_data(species_names)
+iucn_data_result
+```
+
+- Example usage of the get_vernacular_name function
+ This retrieves the vernacular names for the specified species
+
+```{r}
+vernacular_names_result <- get_vernacular_name(species = species_names)
+vernacular_names_result
 ```
 
 ### Citation
