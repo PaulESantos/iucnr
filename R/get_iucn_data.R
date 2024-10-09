@@ -12,34 +12,22 @@
 #'
 #' @export
 get_iucn_data <- function(species_names) {
-  # Check for valid input
-  if (missing(species_names) || !is.character(species_names) || length(species_names) == 0) {
-    stop("Please provide a non-empty character vector of species names.")
-  }
+  # Verificar que se proporcionen nombres de especies válidos
 
-  # Convert the iucn_data to data.table for optimization
-  iucn_data <- data.table::as.data.table(iucn_data)
-
-  # Convert species names to lowercase and trim whitespaces
-  species_names_lower <- trimws(tolower(species_names))
-
-  # Initialize a data.table with the submitted species names
-  results <- data.table::data.table(submitted_name = species_names)
-
-  # Search and retrieve full information from iucn_data based on species names
-  matched_rows <- iucn_data[tolower(search_name) %in% species_names_lower]
-
-  # Merge the matched results with the original species names
-  # The merge ensures all submitted species are returned, even if no match is found
+  # Convertir iucn_data a data.table si no lo es
+  # Inicializar un data.table con los nombres de especies proporcionados
+  results <- data.frame(submitted_name = species_names)
+  data <- iucnr::iucn_data
+  # Buscar y recuperar toda la información de iucn_data basada en los nombres de especies
+  matched_rows <- data[data$search_name  %in% species_names,]
+  matched_rows
+  # Combinar los resultados encontrados con los nombres originales proporcionados
   output <- merge(results,
-                   matched_rows,
-                   by.x = "submitted_name",
-                   by.y = "search_name",
-                   all.x = TRUE)
-
-  # If there are no matches for certain species, set "no match found" for threat_status
-  #output <- output[is.na(threat_status), threat_status := "no match found"]
-
-  # Return the final data.table with the full information
+                  matched_rows,
+                  by.x = "submitted_name",
+                  by.y = "search_name",  # Usar la nueva columna en minúsculas para la búsqueda
+                  all.x = TRUE)
+output
+  # Devolver el data.table final con la información completa
   return(output)
 }

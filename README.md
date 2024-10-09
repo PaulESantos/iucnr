@@ -68,7 +68,7 @@ command:
 pak::pak("PaulESantos/iucnr")
 ```
 
-# Example usage of the iucnr package
+# Example
 
 - Define a vector of species names
 

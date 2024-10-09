@@ -30,22 +30,28 @@ get_vernacular_name <- function(species) {
   match_coreid <- as.character(data$core_id)
 
   # Filtra la tabla vernacular_name según los core_id coincidentes
-  output <- data.table::as.data.table(vernacular_name[vernacular_name$core_id %in% match_coreid, ])
+  output <- vernacular_name[vernacular_name$core_id %in% match_coreid, ]
 
   # Asegúrate de que core_id sea character en el output
-  output[, core_id := as.character(core_id)]
+  output$core_id <-  as.character(output$core_id)
 
   # Agrupa y combina los nombres vernáculos únicos por core_id
-  ver_names <- output[, .(vernacular_names = paste0(unique(vernacular_name), collapse = " - ")), by = core_id]
+  # Using aggregate
+  ver_names <- stats::aggregate(vernacular_name ~ core_id,
+                         output,
+                         FUN = function(x) paste(x, collapse = ", "))
+
 
   # Selecciona las columnas de metadatos necesarias y convierte core_id a character
-  metadata <- data[, .(submitted_name, core_id = as.character(core_id))]
+  metadata <- data[,c("submitted_name",  "core_id" )]
 
   # Combina los nombres vernáculos con los metadatos según el core_id
-  result <- merge(metadata, ver_names, by = "core_id", all.x = TRUE)
+  result <- merge(metadata,
+                  ver_names,
+                  by = "core_id", all.x = TRUE)
 
   # Elimina la columna core_id del resultado final
-  result <- result[, !"core_id", with = FALSE]
+  result <- result[,c("submitted_name", "vernacular_name")]
 
   return(result)
 }
