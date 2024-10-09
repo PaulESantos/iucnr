@@ -62,7 +62,62 @@ dataset, and returns full information about the matched species.</p>
     <div class="sourceCode"><pre class="sourceCode r"><code><span class="r-in"><span><span class="va">x</span> <span class="op">&lt;-</span> <span class="fu"><a href="https://rdrr.io/r/base/c.html" class="external-link">c</a></span><span class="op">(</span><span class="st">"Cedrela odorata"</span>, <span class="st">"Persea americana"</span>,</span></span>
 <span class="r-in"><span>       <span class="st">"Panthera uncia"</span>, <span class="st">"Lynx lynx"</span>, <span class="st">"Ara militaris"</span>, <span class="st">"Zonotrichia capencis"</span><span class="op">)</span></span></span>
 <span class="r-in"><span><span class="fu">get_iucn_data</span><span class="op">(</span><span class="va">x</span><span class="op">)</span></span></span>
-<span class="r-err co"><span class="r-pr">#&gt;</span> <span class="error">Error in get_iucn_data(x):</span> could not find function "get_iucn_data"</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span>         submitted_name  core_id                 scientific_name  kingdom</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> 1        Ara militaris 22685548  Ara militaris (Linnaeus, 1766) ANIMALIA</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> 2      Cedrela odorata    32292              Cedrela odorata L.  PLANTAE</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> 3            Lynx lynx    12519      Lynx lynx (Linnaeus, 1758) ANIMALIA</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> 4       Panthera uncia    22732 Panthera uncia (Schreber, 1775) ANIMALIA</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> 5     Persea americana 96986556          Persea americana Mill.  PLANTAE</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> 6 Zonotrichia capencis     &lt;NA&gt;                            &lt;NA&gt;     &lt;NA&gt;</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span>         phylum         class          order      family    genus</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> 1     CHORDATA          AVES PSITTACIFORMES PSITTACIDAE      Ara</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> 2 TRACHEOPHYTA MAGNOLIOPSIDA     SAPINDALES   MELIACEAE  Cedrela</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> 3     CHORDATA      MAMMALIA      CARNIVORA     FELIDAE     Lynx</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> 4     CHORDATA      MAMMALIA      CARNIVORA     FELIDAE Panthera</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> 5 TRACHEOPHYTA MAGNOLIOPSIDA       LAURALES   LAURACEAE   Persea</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> 6         &lt;NA&gt;          &lt;NA&gt;           &lt;NA&gt;        &lt;NA&gt;     &lt;NA&gt;</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span>   specific_epithet scientific_name_authorship taxon_rank infraspecific_epithet</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> 1        militaris           (Linnaeus, 1766)    species                  &lt;NA&gt;</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> 2          odorata                         L.    species                  &lt;NA&gt;</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> 3             lynx           (Linnaeus, 1758)    species                  &lt;NA&gt;</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> 4            uncia           (Schreber, 1775)    species                  &lt;NA&gt;</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> 5        americana                      Mill.    species                  &lt;NA&gt;</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> 6             &lt;NA&gt;                       &lt;NA&gt;       &lt;NA&gt;                  &lt;NA&gt;</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span>   taxonomic_status accepted_name_usage_id</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> 1         accepted               22685548</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> 2         accepted                  32292</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> 3         accepted                  12519</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> 4         accepted                  22732</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> 5         accepted               96986556</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> 6             &lt;NA&gt;                     NA</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span>                                                                                                                                                                                                          bibliographic_citation</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> 1                                                 BirdLife International 2020. Ara militaris (Linnaeus, 1766). The IUCN Red List of Threatened Species 2020: https://doi.org/10.2305/IUCN.UK.2020-3.RLTS.T22685548A179407584.en</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> 2                                                                Mark, J. &amp; Rivers, M.C. 2017. Cedrela odorata L.. The IUCN Red List of Threatened Species 2017: https://doi.org/10.2305/IUCN.UK.2017-3.RLTS.T32292A68080590.en</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> 3                                        Breitenmoser, U., Breitenmoser-Würsten, C., Lanz, T., von Arx, M., Antonevich, A., Bao, W. &amp; Avgan, B. 2015. Lynx lynx (Linnaeus, 1758). The IUCN Red List of Threatened Species 2015:</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> 4          McCarthy, T., Mallon, D., Jackson, R., Zahler, P. &amp; McCarthy, K. 2017. Panthera uncia (Schreber, 1775). The IUCN Red List of Threatened Species 2017: https://doi.org/10.2305/IUCN.UK.2017-2.RLTS.T22732A50664030.en</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> 5 Wegier, A., Lorea Hernández, F., Contreras, A., Tobón, W. &amp; Mastretta-Yanes, A. 2017. Persea americana Mill.. The IUCN Red List of Threatened Species 2017: https://doi.org/10.2305/IUCN.UK.2017-3.RLTS.T96986556A96986588.en</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> 6                                                                                                                                                                                                                          &lt;NA&gt;</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span>                                                    references</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> 1 https://apiv3.iucnredlist.org/api/v3/taxonredirect/22685548</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> 2    https://apiv3.iucnredlist.org/api/v3/taxonredirect/32292</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> 3    https://apiv3.iucnredlist.org/api/v3/taxonredirect/12519</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> 4    https://apiv3.iucnredlist.org/api/v3/taxonredirect/22732</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> 5 https://apiv3.iucnredlist.org/api/v3/taxonredirect/96986556</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> 6                                                        &lt;NA&gt;</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span>                                                                                                                                                                                                                          source</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> 1                                                 BirdLife International 2020. Ara militaris (Linnaeus, 1766). The IUCN Red List of Threatened Species 2020: https://doi.org/10.2305/IUCN.UK.2020-3.RLTS.T22685548A179407584.en</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> 2                                                                Mark, J. &amp; Rivers, M.C. 2017. Cedrela odorata L.. The IUCN Red List of Threatened Species 2017: https://doi.org/10.2305/IUCN.UK.2017-3.RLTS.T32292A68080590.en</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> 3                                        Breitenmoser, U., Breitenmoser-Würsten, C., Lanz, T., von Arx, M., Antonevich, A., Bao, W. &amp; Avgan, B. 2015. Lynx lynx (Linnaeus, 1758). The IUCN Red List of Threatened Species 2015:</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> 4          McCarthy, T., Mallon, D., Jackson, R., Zahler, P. &amp; McCarthy, K. 2017. Panthera uncia (Schreber, 1775). The IUCN Red List of Threatened Species 2017: https://doi.org/10.2305/IUCN.UK.2017-2.RLTS.T22732A50664030.en</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> 5 Wegier, A., Lorea Hernández, F., Contreras, A., Tobón, W. &amp; Mastretta-Yanes, A. 2017. Persea americana Mill.. The IUCN Red List of Threatened Species 2017: https://doi.org/10.2305/IUCN.UK.2017-3.RLTS.T96986556A96986588.en</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> 6                                                                                                                                                                                                                          &lt;NA&gt;</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span>   threat_status occurrence_status infrasp_tag</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> 1    Vulnerable           Present        &lt;NA&gt;</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> 2    Vulnerable           Present        &lt;NA&gt;</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> 3 Least concern           Present        &lt;NA&gt;</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> 4    Vulnerable           Present        &lt;NA&gt;</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> 5 Least concern           Present        &lt;NA&gt;</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> 6          &lt;NA&gt;              &lt;NA&gt;        &lt;NA&gt;</span>
 <span class="r-in"><span></span></span>
 </code></pre></div>
     </div>
