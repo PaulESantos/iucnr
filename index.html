@@ -81,31 +81,90 @@
 <li>Define a vector of species names</li>
 </ul>
 <div class="sourceCode" id="cb3"><pre class="downlit sourceCode r">
-<code class="sourceCode R"><span><span class="va">x</span> <span class="op">&lt;-</span> <span class="fu"><a href="https://rdrr.io/r/base/c.html" class="external-link">c</a></span><span class="op">(</span><span class="st">"Cedrela odorata"</span>, <span class="st">"Persea americana"</span>, </span>
-<span>       <span class="st">"Panthera uncia"</span>, <span class="st">"Lynx lynx"</span>, <span class="st">"Ara militaris"</span>, <span class="st">"Zonotrichia capencis"</span><span class="op">)</span></span></code></pre></div>
+<code class="sourceCode R"><span><span class="va">species_names</span> <span class="op">&lt;-</span> <span class="fu"><a href="https://rdrr.io/r/base/c.html" class="external-link">c</a></span><span class="op">(</span><span class="st">"Panthera uncia"</span>, <span class="st">"Lynx lynx"</span>, <span class="st">"Ara militaris"</span>, <span class="st">"Zonotrichia capencis"</span><span class="op">)</span></span></code></pre></div>
 <ul>
-<li>Get the conservation status for each species</li>
+<li>Example usage of the get_conservation_status function This retrieves the conservation status for the specified species</li>
 </ul>
 <div class="sourceCode" id="cb4"><pre class="downlit sourceCode r">
-<code class="sourceCode R"><span><span class="kw"><a href="https://rdrr.io/r/base/library.html" class="external-link">library</a></span><span class="op">(</span><span class="va"><a href="https://github.com/PaulESantos/iucnr" class="external-link">iucnr</a></span><span class="op">)</span></span>
-<span><span class="fu"><a href="reference/get_conservation_status.html">get_conservation_status</a></span><span class="op">(</span><span class="va">x</span><span class="op">)</span></span>
-<span><span class="co">#&gt; [1] "Vulnerable"     "Least concern"  "Vulnerable"     "Least concern" </span></span>
-<span><span class="co">#&gt; [5] "Vulnerable"     "no match found"</span></span></code></pre></div>
+<code class="sourceCode R"><span><span class="va">conservation_status</span> <span class="op">&lt;-</span> <span class="fu"><a href="reference/get_conservation_status.html">get_conservation_status</a></span><span class="op">(</span>species_names <span class="op">=</span> <span class="va">species_names</span><span class="op">)</span></span>
+<span><span class="va">conservation_status</span></span>
+<span><span class="co">#&gt; [1] "Vulnerable"     "Least concern"  "Vulnerable"     "no match found"</span></span></code></pre></div>
 <ul>
-<li>Integrate the results into a tibble for further analysis</li>
+<li>Example usage of the get_conservation_status function within a tibble This creates a tibble and adds a new column with the conservation status of each species</li>
 </ul>
 <div class="sourceCode" id="cb5"><pre class="downlit sourceCode r">
-<code class="sourceCode R"><span><span class="fu">tibble</span><span class="fu">::</span><span class="fu"><a href="https://tibble.tidyverse.org/reference/tibble.html" class="external-link">tibble</a></span><span class="op">(</span>species <span class="op">=</span> <span class="va">x</span><span class="op">)</span> <span class="op">|&gt;</span> </span>
+<code class="sourceCode R"><span><span class="va">species_data</span> <span class="op">&lt;-</span> <span class="fu">tibble</span><span class="fu">::</span><span class="fu"><a href="https://tibble.tidyverse.org/reference/tibble.html" class="external-link">tibble</a></span><span class="op">(</span>species <span class="op">=</span> <span class="va">species_names</span><span class="op">)</span> <span class="op">|&gt;</span> </span>
 <span>  <span class="fu">dplyr</span><span class="fu">::</span><span class="fu">mutate</span><span class="op">(</span>iucn <span class="op">=</span> <span class="fu"><a href="reference/get_conservation_status.html">get_conservation_status</a></span><span class="op">(</span><span class="va">species</span><span class="op">)</span><span class="op">)</span></span>
-<span><span class="co">#&gt; # A tibble: 6 × 2</span></span>
+<span><span class="va">species_data</span></span>
+<span><span class="co">#&gt; # A tibble: 4 × 2</span></span>
 <span><span class="co">#&gt;   species              iucn          </span></span>
 <span><span class="co">#&gt;   &lt;chr&gt;                &lt;chr&gt;         </span></span>
-<span><span class="co">#&gt; 1 Cedrela odorata      Vulnerable    </span></span>
-<span><span class="co">#&gt; 2 Persea americana     Least concern </span></span>
-<span><span class="co">#&gt; 3 Panthera uncia       Vulnerable    </span></span>
-<span><span class="co">#&gt; 4 Lynx lynx            Least concern </span></span>
-<span><span class="co">#&gt; 5 Ara militaris        Vulnerable    </span></span>
-<span><span class="co">#&gt; 6 Zonotrichia capencis no match found</span></span></code></pre></div>
+<span><span class="co">#&gt; 1 Panthera uncia       Vulnerable    </span></span>
+<span><span class="co">#&gt; 2 Lynx lynx            Least concern </span></span>
+<span><span class="co">#&gt; 3 Ara militaris        Vulnerable    </span></span>
+<span><span class="co">#&gt; 4 Zonotrichia capencis no match found</span></span></code></pre></div>
+<ul>
+<li>Example usage of the get_iucn_data function This retrieves detailed IUCN data for the specified species names</li>
+</ul>
+<div class="sourceCode" id="cb6"><pre class="downlit sourceCode r">
+<code class="sourceCode R"><span><span class="va">iucn_data_result</span> <span class="op">&lt;-</span> <span class="fu"><a href="reference/get_iucn_data.html">get_iucn_data</a></span><span class="op">(</span><span class="va">species_names</span><span class="op">)</span></span>
+<span><span class="va">iucn_data_result</span></span>
+<span><span class="co">#&gt;         submitted_name  core_id                 scientific_name  kingdom</span></span>
+<span><span class="co">#&gt; 1        Ara militaris 22685548  Ara militaris (Linnaeus, 1766) ANIMALIA</span></span>
+<span><span class="co">#&gt; 2            Lynx lynx    12519      Lynx lynx (Linnaeus, 1758) ANIMALIA</span></span>
+<span><span class="co">#&gt; 3       Panthera uncia    22732 Panthera uncia (Schreber, 1775) ANIMALIA</span></span>
+<span><span class="co">#&gt; 4 Zonotrichia capencis     &lt;NA&gt;                            &lt;NA&gt;     &lt;NA&gt;</span></span>
+<span><span class="co">#&gt;     phylum    class          order      family    genus specific_epithet</span></span>
+<span><span class="co">#&gt; 1 CHORDATA     AVES PSITTACIFORMES PSITTACIDAE      Ara        militaris</span></span>
+<span><span class="co">#&gt; 2 CHORDATA MAMMALIA      CARNIVORA     FELIDAE     Lynx             lynx</span></span>
+<span><span class="co">#&gt; 3 CHORDATA MAMMALIA      CARNIVORA     FELIDAE Panthera            uncia</span></span>
+<span><span class="co">#&gt; 4     &lt;NA&gt;     &lt;NA&gt;           &lt;NA&gt;        &lt;NA&gt;     &lt;NA&gt;             &lt;NA&gt;</span></span>
+<span><span class="co">#&gt;   scientific_name_authorship taxon_rank infraspecific_epithet taxonomic_status</span></span>
+<span><span class="co">#&gt; 1           (Linnaeus, 1766)    species                  &lt;NA&gt;         accepted</span></span>
+<span><span class="co">#&gt; 2           (Linnaeus, 1758)    species                  &lt;NA&gt;         accepted</span></span>
+<span><span class="co">#&gt; 3           (Schreber, 1775)    species                  &lt;NA&gt;         accepted</span></span>
+<span><span class="co">#&gt; 4                       &lt;NA&gt;       &lt;NA&gt;                  &lt;NA&gt;             &lt;NA&gt;</span></span>
+<span><span class="co">#&gt;   accepted_name_usage_id</span></span>
+<span><span class="co">#&gt; 1               22685548</span></span>
+<span><span class="co">#&gt; 2                  12519</span></span>
+<span><span class="co">#&gt; 3                  22732</span></span>
+<span><span class="co">#&gt; 4                     NA</span></span>
+<span><span class="co">#&gt;                                                                                                                                                                                                 bibliographic_citation</span></span>
+<span><span class="co">#&gt; 1                                        BirdLife International 2020. Ara militaris (Linnaeus, 1766). The IUCN Red List of Threatened Species 2020: https://doi.org/10.2305/IUCN.UK.2020-3.RLTS.T22685548A179407584.en</span></span>
+<span><span class="co">#&gt; 2                               Breitenmoser, U., Breitenmoser-Würsten, C., Lanz, T., von Arx, M., Antonevich, A., Bao, W. &amp; Avgan, B. 2015. Lynx lynx (Linnaeus, 1758). The IUCN Red List of Threatened Species 2015:</span></span>
+<span><span class="co">#&gt; 3 McCarthy, T., Mallon, D., Jackson, R., Zahler, P. &amp; McCarthy, K. 2017. Panthera uncia (Schreber, 1775). The IUCN Red List of Threatened Species 2017: https://doi.org/10.2305/IUCN.UK.2017-2.RLTS.T22732A50664030.en</span></span>
+<span><span class="co">#&gt; 4                                                                                                                                                                                                                 &lt;NA&gt;</span></span>
+<span><span class="co">#&gt;                                                    references</span></span>
+<span><span class="co">#&gt; 1 https://apiv3.iucnredlist.org/api/v3/taxonredirect/22685548</span></span>
+<span><span class="co">#&gt; 2    https://apiv3.iucnredlist.org/api/v3/taxonredirect/12519</span></span>
+<span><span class="co">#&gt; 3    https://apiv3.iucnredlist.org/api/v3/taxonredirect/22732</span></span>
+<span><span class="co">#&gt; 4                                                        &lt;NA&gt;</span></span>
+<span><span class="co">#&gt;                                                                                                                                                                                                                 source</span></span>
+<span><span class="co">#&gt; 1                                        BirdLife International 2020. Ara militaris (Linnaeus, 1766). The IUCN Red List of Threatened Species 2020: https://doi.org/10.2305/IUCN.UK.2020-3.RLTS.T22685548A179407584.en</span></span>
+<span><span class="co">#&gt; 2                               Breitenmoser, U., Breitenmoser-Würsten, C., Lanz, T., von Arx, M., Antonevich, A., Bao, W. &amp; Avgan, B. 2015. Lynx lynx (Linnaeus, 1758). The IUCN Red List of Threatened Species 2015:</span></span>
+<span><span class="co">#&gt; 3 McCarthy, T., Mallon, D., Jackson, R., Zahler, P. &amp; McCarthy, K. 2017. Panthera uncia (Schreber, 1775). The IUCN Red List of Threatened Species 2017: https://doi.org/10.2305/IUCN.UK.2017-2.RLTS.T22732A50664030.en</span></span>
+<span><span class="co">#&gt; 4                                                                                                                                                                                                                 &lt;NA&gt;</span></span>
+<span><span class="co">#&gt;   threat_status occurrence_status infrasp_tag</span></span>
+<span><span class="co">#&gt; 1    Vulnerable           Present        &lt;NA&gt;</span></span>
+<span><span class="co">#&gt; 2 Least concern           Present        &lt;NA&gt;</span></span>
+<span><span class="co">#&gt; 3    Vulnerable           Present        &lt;NA&gt;</span></span>
+<span><span class="co">#&gt; 4          &lt;NA&gt;              &lt;NA&gt;        &lt;NA&gt;</span></span></code></pre></div>
+<ul>
+<li>Example usage of the get_vernacular_name function This retrieves the vernacular names for the specified species</li>
+</ul>
+<div class="sourceCode" id="cb7"><pre class="downlit sourceCode r">
+<code class="sourceCode R"><span><span class="va">vernacular_names_result</span> <span class="op">&lt;-</span> <span class="fu"><a href="reference/get_vernacular_name.html">get_vernacular_name</a></span><span class="op">(</span>species <span class="op">=</span> <span class="va">species_names</span><span class="op">)</span></span>
+<span><span class="va">vernacular_names_result</span></span>
+<span><span class="co">#&gt;         submitted_name</span></span>
+<span><span class="co">#&gt; 1            Lynx lynx</span></span>
+<span><span class="co">#&gt; 2        Ara militaris</span></span>
+<span><span class="co">#&gt; 3       Panthera uncia</span></span>
+<span><span class="co">#&gt; 4 Zonotrichia capencis</span></span>
+<span><span class="co">#&gt;                                                                                                                                                                                                                   vernacular_name</span></span>
+<span><span class="co">#&gt; 1                                                                                                                                           Lynx, Evroasiin Shiluus, Eurasian Lynx, Lince, Shiluus Mii, Lince Boreal, Lynx Boréal</span></span>
+<span><span class="co">#&gt; 2                                                                                                                                                             Guacamaya Verde, Guacamayo Militar, Military Macaw, Guacamayo Verde</span></span>
+<span><span class="co">#&gt; 3 Léopard des neiges, Irvis, Ilbirs, Snow Leopard, Hiun chituwa, Pantera de la Nieves, Akilbirs, Sah, Babri barfi, Baral he, Snezhniy bars, Xue bào, Barfani chita, Schneeleopard, Ounce, Irbis, Irbis, Once, Panthère des neiges</span></span>
+<span><span class="co">#&gt; 4                                                                                                                                                                                                                            &lt;NA&gt;</span></span></code></pre></div>
 <div class="section level3">
 <h3 id="citation">Citation<a class="anchor" aria-label="anchor" href="#citation"></a>
 </h3>
