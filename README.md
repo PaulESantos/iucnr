@@ -80,9 +80,14 @@ species_names <- c("Panthera uncia", "Lynx lynx", "Ara militaris", "Zonotrichia 
   the conservation status for the specified species
 
 ``` r
+library(iucnr)
+#> This is iucnr 0.0.0.1
+#> The iucnr package is compatible with IUCN Red List version 2024-1,
+#> providing tools to access and analyze the latest conservation status data.
+
 conservation_status <- get_conservation_status(species_names = species_names)
 conservation_status
-#> [1] "Vulnerable"     "Least concern"  "Vulnerable"     "no match found"
+#> [1] "Vulnerable"     "Least Concern"  "Vulnerable"     "no match found"
 ```
 
 - Example usage of the get_conservation_status function within a tibble
@@ -97,7 +102,7 @@ species_data
 #>   species              iucn          
 #>   <chr>                <chr>         
 #> 1 Panthera uncia       Vulnerable    
-#> 2 Lynx lynx            Least concern 
+#> 2 Lynx lynx            Least Concern 
 #> 3 Ara militaris        Vulnerable    
 #> 4 Zonotrichia capencis no match found
 ```
@@ -174,3 +179,6 @@ vernacular_names_result
   <https://www.iucnredlist.org>. Downloaded on 2023-05-09.
   <https://doi.org/10.15468/0qnb58> accessed via GBIF.org on 2023-11-17.
   accessed via GBIF.org on 2024-10-08.
+
+- IUCN. 2024. The IUCN Red List of Threatened Species. Version 2024-1.
+  <https://www.iucnredlist.org>.
