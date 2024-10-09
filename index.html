@@ -86,9 +86,14 @@
 <li>Example usage of the get_conservation_status function This retrieves the conservation status for the specified species</li>
 </ul>
 <div class="sourceCode" id="cb4"><pre class="downlit sourceCode r">
-<code class="sourceCode R"><span><span class="va">conservation_status</span> <span class="op">&lt;-</span> <span class="fu"><a href="reference/get_conservation_status.html">get_conservation_status</a></span><span class="op">(</span>species_names <span class="op">=</span> <span class="va">species_names</span><span class="op">)</span></span>
+<code class="sourceCode R"><span><span class="kw"><a href="https://rdrr.io/r/base/library.html" class="external-link">library</a></span><span class="op">(</span><span class="va"><a href="https://github.com/PaulESantos/iucnr" class="external-link">iucnr</a></span><span class="op">)</span></span>
+<span><span class="co">#&gt; This is iucnr 0.0.0.1</span></span>
+<span><span class="co">#&gt; The iucnr package is compatible with IUCN Red List version 2024-1,</span></span>
+<span><span class="co">#&gt; providing tools to access and analyze the latest conservation status data.</span></span>
+<span></span>
+<span><span class="va">conservation_status</span> <span class="op">&lt;-</span> <span class="fu"><a href="reference/get_conservation_status.html">get_conservation_status</a></span><span class="op">(</span>species_names <span class="op">=</span> <span class="va">species_names</span><span class="op">)</span></span>
 <span><span class="va">conservation_status</span></span>
-<span><span class="co">#&gt; [1] "Vulnerable"     "Least concern"  "Vulnerable"     "no match found"</span></span></code></pre></div>
+<span><span class="co">#&gt; [1] "Vulnerable"     "Least Concern"  "Vulnerable"     "no match found"</span></span></code></pre></div>
 <ul>
 <li>Example usage of the get_conservation_status function within a tibble This creates a tibble and adds a new column with the conservation status of each species</li>
 </ul>
@@ -100,7 +105,7 @@
 <span><span class="co">#&gt;   species              iucn          </span></span>
 <span><span class="co">#&gt;   &lt;chr&gt;                &lt;chr&gt;         </span></span>
 <span><span class="co">#&gt; 1 Panthera uncia       Vulnerable    </span></span>
-<span><span class="co">#&gt; 2 Lynx lynx            Least concern </span></span>
+<span><span class="co">#&gt; 2 Lynx lynx            Least Concern </span></span>
 <span><span class="co">#&gt; 3 Ara militaris        Vulnerable    </span></span>
 <span><span class="co">#&gt; 4 Zonotrichia capencis no match found</span></span></code></pre></div>
 <ul>
@@ -169,7 +174,8 @@
 <h3 id="citation">Citation<a class="anchor" aria-label="anchor" href="#citation"></a>
 </h3>
 <ul>
-<li>IUCN (2022). The IUCN Red List of Threatened Species. Version 2022-2. <a href="https://www.iucnredlist.org" class="external-link uri">https://www.iucnredlist.org</a>. Downloaded on 2023-05-09. <a href="https://doi.org/10.15468/0qnb58" class="external-link uri">https://doi.org/10.15468/0qnb58</a> accessed via GBIF.org on 2023-11-17. accessed via GBIF.org on 2024-10-08.</li>
+<li><p>IUCN (2022). The IUCN Red List of Threatened Species. Version 2022-2. <a href="https://www.iucnredlist.org" class="external-link uri">https://www.iucnredlist.org</a>. Downloaded on 2023-05-09. <a href="https://doi.org/10.15468/0qnb58" class="external-link uri">https://doi.org/10.15468/0qnb58</a> accessed via GBIF.org on 2023-11-17. accessed via GBIF.org on 2024-10-08.</p></li>
+<li><p>IUCN. 2024. The IUCN Red List of Threatened Species. Version 2024-1. <a href="https://www.iucnredlist.org" class="external-link uri">https://www.iucnredlist.org</a>.</p></li>
 </ul>
 </div>
 </div>
