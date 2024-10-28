@@ -65,7 +65,7 @@ species_names <- c("Panthera uncia", "Lynx lynx", "Ara militaris", "Zonotrichia 
 ```{r}
 library(iucnr)
 
-conservation_status <- get_conservation_status(species_names = species_names)
+conservation_status <- get_conservation_status(splist = species_names)
 conservation_status
 ```
 
@@ -73,8 +73,8 @@ conservation_status
  This creates a tibble and adds a new column with the conservation status of each species
 
 ```{r}
-species_data <- tibble::tibble(species = species_names) |> 
-  dplyr::mutate(iucn = get_conservation_status(species))
+species_data <- tibble::tibble(splist = species_names) |> 
+  dplyr::mutate(iucn = get_conservation_status(splist))
 species_data
 ```
 
@@ -82,7 +82,7 @@ species_data
  This retrieves the vernacular names for the specified species
 
 ```{r}
-vernacular_names_result <- get_vernacular_name(species = species_names)
+vernacular_names_result <- get_vernacular_name(splist = species_names)
 vernacular_names_result
 ```
 
