@@ -8,6 +8,8 @@ Authors@R:
 Description: Provides access to the 'IUCN' Red List data (<https://www.gbif.org/dataset/19491596-35ae-4a91-9a98-85cf505f1bd3/>), a comprehensive global inventory of threatened and endangered species. This package simplifies the process of resolving species' conservation status by comparing taxonomic names with the Red List data. The package includes functions for querying and retrieving conservation status, offering a streamlined approach for biodiversity research and conservation planning.
 License: MIT + file LICENSE
 Suggests: 
+    iucnrdata,
+    rlang,
     testthat (>= 3.0.0)
 Config/testthat/edition: 3
 Encoding: UTF-8
@@ -20,4 +22,6 @@ Depends:
 LazyData: true
 LazyDataCompression: xz
 Imports: 
-    data.table
+    cli,
+    dplyr,
+    stringr

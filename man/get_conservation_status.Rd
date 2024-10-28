@@ -4,13 +4,13 @@
 \alias{get_conservation_status}
 \title{Get Conservation Status of Species}
 \usage{
-get_conservation_status(species_names)
+get_conservation_status(splist)
 }
 \arguments{
-\item{species_names}{A character vector of species names to search for in the iucn_data dataset.}
+\item{splist}{A character vector of species names to search for in the iucn_data dataset.}
 }
 \value{
-A data.table with species names and their corresponding conservation status.
+A data.table with species names and their corresponding conservation status or "no match found".
 }
 \description{
 This function retrieves the conservation status of species from the iucn_data dataset.

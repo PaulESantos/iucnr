@@ -77,13 +77,6 @@ species_data <- tibble::tibble(species = species_names) |>
   dplyr::mutate(iucn = get_conservation_status(species))
 species_data
 ```
-- Example usage of the get_iucn_data function
- This retrieves detailed IUCN data for the specified species names
-
-```{r}
-iucn_data_result <- get_iucn_data(species_names)
-iucn_data_result
-```
 
 - Example usage of the get_vernacular_name function
  This retrieves the vernacular names for the specified species
